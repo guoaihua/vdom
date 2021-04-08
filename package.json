@@ -1,0 +1,19 @@
+{
+  "name": "vdom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.3.1",
+    "rollup": "^2.44.0",
+    "rollup-plugin-html2": "^2.0.0",
+    "rollup-plugin-serve": "^1.1.0",
+    "snabbdom": "^3.0.1"
+  }
+}
