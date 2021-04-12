@@ -2,7 +2,7 @@
  * @Author: ziming
  * @Date: 2021-04-08 21:57:09
  * @LastEditors: ziming
- * @LastEditTime: 2021-04-08 22:42:26
+ * @LastEditTime: 2021-04-11 18:15:04
  */
 //  将节点上树
 // 判断旧节点是否是一个vnode，如果不是则包装它为一个vnode
@@ -11,17 +11,18 @@
 
  import vnode from './vnode';
  import createEle from './createElement';
+ import patchVnode from './patchVnode';
 
 export default function(oldVnode, newVnode){
-
-    console.log(newVnode);
-
     if(!oldVnode.sel){
-        oldVnode = vnode(oldVnode.tagName.toLowerCase(), {},[], undefined, oldVnode);
+        oldVnode = vnode(oldVnode.tagName.toLowerCase(), {},[], oldVnode.innerText, oldVnode);
     }
 
     if(oldVnode.sel === newVnode.sel && oldVnode.key === newVnode.key){
-
+        // 开始精细化比较
+        // 先判断新元素是否有text属性，有则会直接覆盖
+        console.log("新旧节点是同一个节点");
+        patchVnode(oldVnode, newVnode);
     }else {
         // 创建新节点
         var newVnodeEle = createEle(newVnode);

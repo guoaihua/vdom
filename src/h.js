@@ -2,7 +2,7 @@
  * @Author: ziming
  * @Date: 2021-04-07 22:36:23
  * @LastEditors: ziming
- * @LastEditTime: 2021-04-07 23:03:04
+ * @LastEditTime: 2021-04-11 17:51:52
  */
 import vnode  from './vnode.js';
 
@@ -17,7 +17,7 @@ export default function(sel, b, c){
     // h('div', {}, h('span',{},"adad"))
 
     if(typeof c === "string"){
-        return vnode(sel, b, undefined,c, undefined);
+        return vnode(sel, b, [],c, undefined);
     }
     if(Object.prototype.toString.call(c) === '[object Object]'){
         return vnode(sel,b, [c], undefined, undefined);

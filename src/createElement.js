@@ -2,7 +2,7 @@
  * @Author: ziming
  * @Date: 2021-04-08 22:11:37
  * @LastEditors: ziming
- * @LastEditTime: 2021-04-08 22:33:14
+ * @LastEditTime: 2021-04-11 17:47:52
  */
 
 import h from "./h";
@@ -18,7 +18,6 @@ export default function createEle(vnode){
     // 创建dom元素
     var vdom = document.createElement(vnode.sel);
     if(vnode.text || vnode.children.length === 0){
-       
         vdom.innerText = vnode.text;
     }else if(Array.isArray(vnode.children)){
         // 处理是数组的情况
