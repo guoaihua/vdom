@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "html-webpack-plugin": "^5.3.1",
+    "mustache": "^4.2.0",
     "rollup": "^2.44.0",
     "rollup-plugin-html2": "^2.0.0",
     "rollup-plugin-serve": "^1.1.0",
