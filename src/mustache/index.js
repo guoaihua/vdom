@@ -1,6 +1,4 @@
-import mustache from 'mustache';
-
-var templatestr = `
+/* var templatestr = `
     <ul>
         {{#stooges}}
             <li>{{name}}</li>
@@ -16,7 +14,8 @@ var data = {
     ]
   };
 
-  var str = mustache.render(templatestr, data);
+  
+  var str = Mustache.render(templatestr, {});
 
   var container = document.getElementById("container");
   container.innerHTML = str
@@ -36,4 +35,21 @@ var data = {
     });
   }
 
-  console.log(renderTemplate(templatestr1, data));
+  console.log(renderTemplate(templatestr1, data)); */
+
+  import parseTemplateToTokens from './parseTemplateToTokens';
+
+  var templates = `
+    <ul>
+        {{#arr}}
+            <li>我的{{thing}}</li>
+            {{#sports}}
+                <li>adad</li>
+            {{/sports}}
+            <li>我的{{adsa}}</li>
+            <li>我的{{ada}}</li>
+        {{/arr}}
+    </ul>
+  `
+  console.log(parseTemplateToTokens(templates));
+
