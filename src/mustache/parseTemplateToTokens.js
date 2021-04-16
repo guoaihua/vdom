@@ -1,5 +1,7 @@
 
 import Scaner from './scaner';
+import nestTokens from './nestTokens';
+
 export default function parseTemplateToTokens(templates){
     var scan = new Scaner(templates);
     var words;
@@ -26,5 +28,5 @@ export default function parseTemplateToTokens(templates){
       scan.scan("}}");
     }
 
-    return tokens;
+    return nestTokens(tokens);
 }

@@ -38,18 +38,61 @@ var data = {
   console.log(renderTemplate(templatestr1, data)); */
 
   import parseTemplateToTokens from './parseTemplateToTokens';
+  import lookup from "./lookup";
+  import renderTemplate from './renderTemplate';
+
 
   var templates = `
     <ul>
         {{#arr}}
             <li>我的{{thing}}</li>
-            {{#sports}}
-                <li>adad</li>
-            {{/sports}}
-            <li>我的{{adsa}}</li>
-            <li>我的{{ada}}</li>
+            <li>我的{{a}}</li>
+            {{#books}}
+                <p>{{a}}</p>
+                <p>{{b}}</p>
+                <p>{{c}}</p>
+            {{/books}}
+            <li>我的{{b}}</li>
         {{/arr}}
+        <li>结束<li>
+        <li>{{mode}}</li>
     </ul>
   `
-  console.log(parseTemplateToTokens(templates));
+
+  var obj = {
+    arr: [
+        {
+            thing: "手机",
+            a: 'ahaha',
+            books: [
+                {
+                    a: "a123",
+                    b: 'b11221',
+                    c: "cadad"
+                }
+            ],
+            b: 'adad'
+        },
+        {
+            thing: "adada",
+            a: 'ahaha',
+            books: [
+                {
+                    a: "a123",
+                    b: 'b11221',
+                    c: "cadad"
+                }
+            ],
+            b: 'adad'
+        }
+    ],
+    mode: "dada"
+  }
+
+  var tokens = parseTemplateToTokens(templates);
+
+  var domstr = renderTemplate(tokens, obj);
+
+console.log(domstr);
+document.body.innerHTML = domstr;
 
